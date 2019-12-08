@@ -1,0 +1,163 @@
+<?php
+
+declare(strict_types = 1);
+
+/**
+ * php-cs-fixer バージョン「^2.11」用ルール
+ */
+$rules = [
+    '@PSR2' => true,
+
+    'cast_spaces' => [// 空白と空白は、キャストと変数の間にある必要があります。
+        'space' => 'none'
+    ],
+    'no_trailing_comma_in_list_call' => true,// リスト関数呼び出しの末尾のカンマを削除します。
+    'no_trailing_comma_in_singleline_array' => true,// PHPの1行の配列には末尾にカンマを付けるべきではありません。
+    'trailing_comma_in_multiline_array' => false,// PHPの複数行配列には末尾にカンマが必要です。
+    'phpdoc_add_missing_param_annotation' => [// PHPDocにはすべてのパラメータの@paramが含まれている必要があります。
+        'only_untyped' => true// 型指定されていないパラメータにのみ欠落している@paramアノテーションを追加するかどうか。
+    ],
+    'phpdoc_align' => [// 指定されたPHPDocタグのすべての項目は、垂直に整列させる必要があります。
+        'tags' => [
+            'param', 'property', 'throws', 'type', 'var', 'method'
+        ]
+    ],
+    'phpdoc_summary' => false,// PHPDocサマリーは、完全停止、感嘆符、疑問符のいずれかで終了する必要があります。
+    'declare_strict_types' => true,// すべてのファイルで厳密な型宣言を強制します。 PHP >= 7.0が必要です。
+    'is_null' => true,// is_null($var)式をnull === $varに置き換えます。
+    'phpdoc_no_empty_return' => false,// "@return void"と "@return null"アノテーションはPHPDocから削除する必要があります。
+    'phpdoc_types_order' => [// PHPDocタイプを並べ替えます。
+        'null_adjustment' => 'always_first',// nullの位置を強制します
+        'sort_algorithm' => 'alpha'// 適用するソートアルゴリズム。
+    ],
+    'general_phpdoc_annotation_remove' => false,// 設定された注釈はPHPDocから削除する必要があります。
+    'no_extra_blank_lines' => true,// 設定後に余分な空白行や空白行を削除します。
+    'blank_line_before_statement' => [// 空行改行は、設定された文の前に置く必要があります。
+        'statements' => [
+            'break', 'continue', 'declare', 'die', 'do', 'exit', 'for', 'foreach',
+            'goto', 'if', 'include', 'include_once', 'require', 'return', 'switch',
+            'throw', 'try', 'while', 'yield'
+        ]
+    ],
+    'declare_equal_normalize' => [// 等号の宣言文は、スペースで囲むか、設定に従わないでください。
+        'space' => 'single'// 等号の周りに適用する間隔。
+    ],
+    'concat_space' => [// コンカチネーションは設定に従って配置しなければなりません。
+        'spacing' => 'one'// 連結演算子の周りに適用する間隔。
+    ],
+    'phpdoc_order' => true,// PHPDocのアノテーションは、 "@param"アノテーションが最初に来てから、 "@throws"アノテーション、 "@return"アノテーションの順になるように並べ替えます。
+    'void_return' => true,// return文がないか空の関数にvoid戻り型を追加しますが、 @return注釈が優先されます。 PHP >= 7.1が必要です。
+    'blank_line_after_opening_tag' => true,// PHPオープンタグと同じ行にコードがないことを確認し、その後に空白行を続けます。
+    'no_blank_lines_after_class_opening' => true,// クラスを開く中括弧の後に空白行は存在しないはずです。
+    'class_attributes_separation' => false,// クラス、特性、およびインターフェース要素は、1つの空白行で区切らなければなりません。
+    'no_unneeded_curly_braces' => true,// 不必要で、コントロール構造体の一部ではない不要な中括弧を削除します。
+    'phpdoc_to_comment' => false,// Docblocksは構造要素に対してのみ使用してください。
+    'align_multiline_comment' => [// 複数行のDocCommentsの各行にはアスタリスク[PSR-5]が必要で、最初の行に合わせる必要があります。
+        'comment_type' => 'phpdocs_only'
+    ],
+    'linebreak_after_opening_tag' => true,// PHPオープンタグと同じ行にコードがないことを確認してください。
+    'phpdoc_trim' => true,// PHPDocは、docblockの最初と最後の行を除いて、コンテンツで開始して終了する必要があります。
+    'phpdoc_single_line_var_spacing' => true,// 単一行の "@var" PHPDocは適切な間隔を持つ必要があります。
+    'no_whitespace_in_blank_line' => true,// 空白行の末尾にある末尾の空白を削除します。
+    'no_blank_lines_after_phpdoc' => true,// docblockと文書化された要素の間に空白行を入れてはいけません。
+    'single_blank_line_before_namespace' => true,// 名前空間宣言の前には、ちょうど1つの空白行があるはずです。
+    'single_blank_line_at_eof' => true,// 終了タグの付いていないPHPファイルは、常に空の1行の改行で終わらなければなりません。
+    'no_empty_comment' => true,// 空のコメントはありません。
+    'no_empty_phpdoc' => true,// 空のPHPDocブロックはあってはいけません。
+    'no_empty_statement' => true,// 不要なセミコロンのステートメントを削除します。
+    'heredoc_to_nowdoc' => true,// 可能であれば、heredocをnowdocに変換してください。
+    'no_spaces_around_offset' => true,// オフセットブレースの周囲にはスペースを入れてはいけません。
+    'return_type_declaration' => true,// コロンの前には空白が1つ、または空白でなければならず、後ろに空白が1つあります。
+    'method_chaining_indentation' => true,// メソッド連鎖は適切に字下げされなければならない。  インデントのレベルが異なるメソッドチェーニングはサポートされていません。
+    'yoda_style' => true,// 条件に基づいてヨーダスタイル（true）、ヨーダスタイル以外（false）、またはそれらの条件（null）を無視する。
+    'ordered_imports' => true,// 使用ステートメントの注文。
+    'binary_operator_spaces' => [// バイナリ演算子は、構成されたスペースで囲む必要があります。
+        'default' => 'single_space'
+    ],
+    'phpdoc_scalar' => true,// スカラー型は常に同じ形式で記述する必要があります。 intではない整数、ブールではないboolean、floatではないrealまたはdoubleである
+    'ordered_class_elements' => true,// クラス/インターフェース/トレイトの要素を注文します。
+    'single_quote' => true,// 単純な文字列の場合は、二重引用符を一重引用符に変換します。
+    'no_useless_else' => true,// 無駄な場合はありません。
+    'phpdoc_types' => true,// 正しい大文字小文字は、PHPDocの標準PHP型に使用する必要があります。
+    'array_syntax' => [// PHP配列は、設定された構文を使用して宣言する必要があります。
+        'syntax' => 'short'// short配列構文を使用。
+    ],
+    'combine_consecutive_issets' => true,// isset（$var）&&を複数回使用することは、1回の呼び出しで行う必要があります。
+    'combine_consecutive_unsets' => true,
+    'compact_nullable_typehint' => false,// null可能な型ヒント内の余分なスペースを削除します。
+    'dir_constant' => true,// dirname（__FILE__）式を同等の__DIR__定数で置き換えます。
+    'ereg_to_preg' => true,// 廃止予定のereg正規表現関数をpregに置き換えます。
+    'escape_implicit_backslashes' => true,// 文字列やheredocの暗黙のバックスラッシュをエスケープして、どの文字がPHPによって解釈されるかを理解しやすくします。
+    'explicit_indirect_variable' => true,// 間接的な変数に中括弧を追加して、理解しやすいようにします。 PHP >= 7.0が必要です。
+    'explicit_string_variable' => true,// 暗黙の変数を、二重引用符で囲まれた文字列またはheredoc構文で明示的な変数に変換します。
+    'function_typehint_space' => true,// 関数の引数とその型ヒントの間に空白スペースを追加します。
+    'single_line_comment_style' => false,// 実際のコンテンツの1行だけを含む1行コメントおよび複数行コメントは、//構文を使用する必要があります。
+    'include' => true,// Include / Requireとファイルパスは、単一のスペースで区切る必要があります。 ファイルのパスは角カッコの下に置かないでください。
+    'list_syntax' => [// リスト（配列の非構造化）の割り当ては、設定された構文を使用して宣言する必要があります。 PHP >= 7.1が必要です。
+        'syntax' => 'long'// 長い構文を使用するかどうか。
+    ],
+    'lowercase_cast' => true,// キャストは小文字で書く必要があります。
+    'magic_constant_casing' => true,// マジック定数は、正しいケーシングを使用して参照する必要があります。
+    'native_function_casing' => true,// PHPで定義された関数は、正しいケーシングを使用して呼び出す必要があります。
+    'no_leading_import_slash' => true,// use節の先頭のスラッシュを削除します。
+    'no_leading_namespace_whitespace' => true,// 名前空間宣言行には先頭の空白を入れてはいけません。
+    'no_mixed_echo_print' => true,// 言語構成のprintまたはechoを使用する必要があります。
+    'no_multiline_whitespace_around_double_arrow' => true,// 演算子=>は、複数行の空白に囲まれてはいけません。
+    'multiline_whitespace_before_semicolons' => true,// セミコロンを閉じる前の複数行の空白は禁止されています。
+    'no_null_property_initialization' => true,// プロパティはnullで明示的に初期化してはいけません。
+    'no_php4_constructor' => true,// PHP4スタイルのコンストラクタを__constructに変換します。
+    'no_short_bool_cast' => true,// 二重の感嘆符を使用するショートキャストブールは使用しないでください。
+    'no_singleline_whitespace_before_semicolons' => true,// セミコロンを閉じる前の1行の空白は禁止されています。
+    'no_unneeded_control_parentheses' => true,// 制御ステートメントの周りに不要なかっこを削除します。
+    'no_unneeded_final_method' => true,// finalクラスにはfinalメソッドがあってはなりません。
+    'no_useless_return' => true,// 関数の最後には、空のreturn文を使用しないでください。
+    'no_whitespace_before_comma_in_array' => true,// 配列の宣言では、各コンマの前に空白があってはいけません。
+    'normalize_index_brace' => true,// 配列のインデックスは常に角カッコを使用して記述する必要があります。
+    'object_operator_without_whitespace' => true,// オブジェクトT_OBJECT_OPERATOR -> の前後にスペースを入れてはいけません。
+    'php_unit_construct' => true,// ->assertSame(true, $foo）のようなPHPUnitのアサーションメソッド呼び出しは、->assertTrue（$foo）のような専用メソッドで記述する必要があります。
+    'php_unit_dedicate_assert' => true,// AssertInternalType、assertFileExistsなどのPHPUnitアサーションは、assertTrueに対して使用する必要があります。
+    'php_unit_mock' => true,// ->getMockと ->getMockWithoutInvokingTheOriginalConstructorメソッドの使用は、 ->createMockまたは ->createPartialMockメソッドに置き換えなければならない。
+    'php_unit_namespaced' => true,// PHPUnitクラスは、\PHPUnit_Framework_TestCaseの代わりに\PHPUnit\Framework\TestCaseなどの名前空間バージョンで使用する必要があります。
+    'phpdoc_annotation_without_dot' => true,// PHPDocアノテーション記述は文であってはなりません。
+    'phpdoc_indent' => true,// Docblocksは、文書化された主題と同じ字下げを持つべきです。
+    'phpdoc_inline_tag' => true,// PHPDocインラインタグを修正し、常に @inheritdocをインラインにします。
+    'phpdoc_return_self_reference' => true,// それ自身への参照を返すメソッドの@returnアノテーションのタイプは、設定されたものでなければなりません。
+    'phpdoc_var_without_name' => true,// "@var"と "@type"アノテーションには変数名を含めないでください。
+    'protected_to_private' => false,// 可能であれば、 "protected"変数とメソッドを "private"に変換します。
+    'random_api_migration' => true,// rand、srand、getrandmax関数呼び出しを "mt_*"類似関数に置き換えます。
+    'semicolon_after_instruction' => true,// 指示はセミコロンで終了する必要があります。
+    'short_scalar_cast' => true,// キャスト（boolean）と（integer）は、（bool）および（int）、（double）、（real）として（float）で記述する必要があります。
+    'simplified_null_return' => true,// 「voidを返す」ことを望むreturn文は、「nullを返す」べきではありません。
+    'space_after_semicolon' => true,// セミコロンの後の空白を修正しました。
+    'standardize_not_equals' => true,// すべての "<>"を "!="に置き換えます。
+    'ternary_operator_spaces' => true,// 三項演算子の周囲のスペースを標準化する。
+    'ternary_to_null_coalescing' => true,// null合体演算子 "??"を使用してください。 可能であれば。 PHP> = 7.0が必要です。
+    'trim_array_spaces' => true,// 配列は、関数/メソッドの引数のように、先頭または末尾の1行のスペースなしでフォーマットする必要があります。
+    'unary_operator_spaces' => true,// 単項演算子は、そのオペランドに隣接して配置する必要があります。
+    'whitespace_after_comma_in_array' => true//配列の宣言では、各コンマの後に空白がなければならない（MUST）。
+];
+
+
+$excludes = [
+    'bootstrap/cache',
+    'resources/assets',
+    'storage',
+    'node_modules',
+    'vendor',
+    'bower_components'
+];
+
+return PhpCsFixer\Config::create()
+    ->setRiskyAllowed(true)
+    ->setRules($rules)
+    ->setLineEnding("\n")
+    ->setFinder(
+        PhpCsFixer\Finder::create()
+            ->in(__DIR__)
+            ->exclude($excludes)
+            ->notName('README.md')
+            ->notName('*.xml')
+            ->notName('*.yml')
+            ->notName('_ide_helper.php')
+            ->notName('.phpstorm.meta.php')
+    );
