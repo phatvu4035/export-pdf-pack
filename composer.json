@@ -9,7 +9,7 @@
             "email": "aloha050992@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "fpdf/fpdf": "^1.81",
         "setasign/fpdi": "^2.2",
